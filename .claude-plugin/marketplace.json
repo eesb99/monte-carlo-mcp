@@ -6,7 +6,8 @@
   },
   "metadata": {
     "description": "Monte Carlo simulation tools for business decisions - 4 specialized tools for risk analysis and uncertainty quantification",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "homepage": "https://github.com/eesb99/monte-carlo-mcp"
   },
   "plugins": [
     {
@@ -17,6 +18,8 @@
         "name": "THIAN SEONG YEE",
         "email": "eesb99@gmail.com"
       },
+      "homepage": "https://github.com/eesb99/monte-carlo-mcp",
+      "repository": "git+https://github.com/eesb99/monte-carlo-mcp.git",
       "license": "MIT",
       "keywords": [
         "monte-carlo",
