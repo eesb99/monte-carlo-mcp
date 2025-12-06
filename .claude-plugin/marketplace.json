@@ -1,0 +1,42 @@
+{
+  "name": "monte-carlo-mcp-marketplace",
+  "owner": {
+    "name": "THIAN SEONG YEE",
+    "email": "eesb99@gmail.com"
+  },
+  "metadata": {
+    "description": "Monte Carlo simulation tools for business decisions - 4 specialized tools for risk analysis and uncertainty quantification",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "monte-carlo-business",
+      "description": "Monte Carlo simulation MCP. 4 tools: validate_reasoning_confidence, test_assumption_robustness, run_business_scenario, run_sensitivity_analysis. 10K+ simulations in <2 seconds.",
+      "version": "1.0.0",
+      "author": {
+        "name": "THIAN SEONG YEE",
+        "email": "eesb99@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": [
+        "monte-carlo",
+        "simulation",
+        "risk-analysis",
+        "business-analysis",
+        "uncertainty"
+      ],
+      "category": "productivity",
+      "source": "./",
+      "mcpServers": {
+        "monte-carlo-business": {
+          "command": "${CLAUDE_PLUGIN_ROOT}/run.sh",
+          "env": {
+            "DATA_DIR": "${CLAUDE_PLUGIN_ROOT}/data",
+            "CACHE_ENABLED": "true",
+            "MAX_SIMULATIONS": "50000"
+          }
+        }
+      }
+    }
+  ]
+}
