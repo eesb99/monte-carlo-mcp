@@ -43,7 +43,9 @@ class Variable:
             return rng.lognormal(self.params['mean'], self.params['sigma'], size)
 
         elif self.distribution == DistributionType.UNIFORM:
-            return rng.uniform(self.params['min'], self.params['max'], size)
+            low = self.params.get('low', self.params.get('min'))
+            high = self.params.get('high', self.params.get('max'))
+            return rng.uniform(low, high, size)
 
         elif self.distribution == DistributionType.TRIANGULAR:
             return rng.triangular(
@@ -170,10 +172,12 @@ class MonteCarloEngine:
                     scale=var.params['std']
                 )
             elif var.distribution == DistributionType.UNIFORM:
+                low = var.params.get('low', var.params.get('min'))
+                high = var.params.get('high', var.params.get('max'))
                 correlated_samples[var.name] = stats.uniform.ppf(
                     correlated_uniform[i],
-                    loc=var.params['min'],
-                    scale=var.params['max'] - var.params['min']
+                    loc=low,
+                    scale=high - low
                 )
             else:
                 # For other distributions, use the original samples (approximation)
